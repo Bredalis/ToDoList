@@ -24,7 +24,7 @@ function agregarTareas() {
 	checkbox.type = "checkbox";
 	checkbox.style.position = "absolute";
 	checkbox.style.top = "0.4rem";
-	checkbox.style.left = "9rem";
+	checkbox.style.left = "3rem";
 
 	var basurero = document.createElement("button");
 	basurero.innerHTML = "Borrar";
