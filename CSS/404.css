@@ -1,0 +1,19 @@
+
+* {
+	text-align: center;
+}
+
+h1 {
+	font-size: 60px;
+	margin-top: 60px;
+}
+
+h2 {
+	font-size: 40px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	font-size: 20px;
+}
