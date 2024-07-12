@@ -3,13 +3,27 @@
 	text-align: center;
 }
 
+@font-face {
+	font-family: "SalisburyBold";
+	src: url("../Fuentes/SalisburyBold.ttf") format("opentype");
+}
+
+body{
+	font-family: SalisburyBold;
+}
+
 h1 {
 	font-size: 60px;
 	margin-top: 60px;
+	color: #E74C3C;
 }
 
 h2 {
 	font-size: 40px;
+}
+
+span {
+	color: #E74C3C;
 }
 
 a {

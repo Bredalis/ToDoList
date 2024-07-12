@@ -1,12 +1,17 @@
 
 *{
 	text-align: center;
-	font-family: Arial;
+}
+
+@font-face {
+	font-family: "SalisburyBold";
+	src: url("../Fuentes/SalisburyBold.ttf") format("opentype");
 }
 
 body{
 	background: #EC7063;
 	color: white;
+	font-family: SalisburyBold;
 }
 
 h1{
