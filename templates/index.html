@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To Do List</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='IMG/Logo.png') }}" type="image/x-icon">
+</head>
+<body>
+	<h1>Python Flask - To Do List</h1>
+	<form action="{{ url_for('guardar_tarea') }}" method="POST">
+		<input type="text" placeholder="Escribe tu tarea aqui" id="tareas-ingresadas" name="tarea">
+		<button id="boton_agregar" type="submit">
+			<img src="{{ url_for('static', filename='IMG/Agregar.png') }}">
+		</button>
+	</form>
+
+	<ul id="lista-tareas">
+		{% for tarea in tareas %}
+			<li style="background: white;">
+				<input type="checkbox" {% if tarea["Completada"] %} checked {% endif %} onchange="window.location.href='{{ url_for('toggle_tarea', id=tarea['_id']) }}'">
+				<span>{{ tarea['Nombre'] }}</span>
+				<button onclick="window.location.href='{{ url_for('borrar_tarea', id=tarea['_id']) }}'">Borrar</button>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<h4 class="estado-tareas">Tareas pendientes: {{ tareas_pendientes }}</h4>
+	<h4 class="estado-tareas">Completadas: {{ tareas_completas }}</h4>
+
+</body>
+</html>

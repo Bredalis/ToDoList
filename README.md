@@ -23,25 +23,50 @@
 - [Uso](#uso) 📘
 - [Licencia](#licencia)📜
 
-## Instalación 🖥️
+## **Instalación** 📥
 
-1. Clona el repositorio:
+Sigue estos pasos para configurar el proyecto en tu entorno local:
 
-    ```
+1. **Clonar el Repositorio**
+    ```bash
     git clone https://github.com/Bredalis/ToDoList.git
+    cd ToDoList
     ```
+
+2. **Instalar Dependencias**
+    - Para el backend en Flask:
+      ```bash
+      pip install -r requirements.txt
+      ```
+
+3. **Configurar Variables de Entorno**
+    - Crea un archivo `.env` en la raíz del proyecto con la siguiente configuración:
+      ```ini
+      CLAVE_MONGO=your_mongodb_connection_string
+      ```
+
+4. **Ejecutar el Servidor**
+    ```bash
+    python App.py
+    ```
+
 ## Uso ⚙️
 
 Para ver el 🧾 To Do List 🧾 solo debes seguir estos pasos:
 
-
 1. 📦 Haber clonado el repositorio (La forma de hacerlo se explica más arriba, antes de esta parte).
 
-2. 📝 Abrir tu editor de código preferido.
+2. 📝 Abrir tu editor de código preferido o teminal.
 
-3.  🌐 Ubicarte en el archivo index.html que está en la carpeta HTML, presionar click derecho y darle
-   a Abrir en navegador (Sublime Text) o Abrir con Live Browser en VS Code.
+3. 🔧 Ejecutar el Servidor en la terminal:
+    ```bash
+    python App.py
+    ```
 
+4. 🔧 En el editor con Ctrl + B (Sublime Text) o Ctrl + J y escribes:
+    ```bash
+    python App.py
+    ```
 <br>
 
 ## Licencia 📜
