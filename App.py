@@ -6,10 +6,10 @@ import os
 from bson.objectid import ObjectId
 
 def to_do_list():
-
 	app = Flask(__name__)
 
 	# Conectar a la base de datos
+	load_dotenv()
 	cliente = MongoClient(os.getenv("CLAVE_MONGO"))
 	app.db = cliente["TODOLIST"]
 	coleccion = app.db["Tareas"]
@@ -20,10 +20,11 @@ def to_do_list():
 		tareas_pendientes = sum(1 for tarea in tareas if not tarea.get("Completada"))
 		tareas_completas = len(tareas) - tareas_pendientes
 		
-		return render_template("index.html", tareas = tareas, tareas_pendientes = tareas_pendientes, 
+		return render_template("index.html", tareas = tareas, 
+			tareas_pendientes = tareas_pendientes, 
 			tareas_completas = tareas_completas)
 
-	@app.route("/Guardar_Tarea", methods = ["POST"])
+	@app.route("/guardar-tarea", methods = ["POST"])
 	def guardar_tarea():
 		tarea = request.form.get("tarea")
 		if tarea:
@@ -31,7 +32,7 @@ def to_do_list():
 		
 		return redirect(url_for("index"))
 
-	@app.route("/Toggle_Tarea/<id>")
+	@app.route("/toggle-tarea/<id>")
 	def toggle_tarea(id):
 		tarea = coleccion.find_one({"_id": ObjectId(id)})
 		if tarea:
@@ -39,7 +40,7 @@ def to_do_list():
 		
 		return redirect(url_for("index"))
 
-	@app.route("/Borrar_Tarea/<id>")
+	@app.route("/borrar-tarea/<id>")
 	def borrar_tarea(id):
 		coleccion.delete_one({"_id": ObjectId(id)})
 		
